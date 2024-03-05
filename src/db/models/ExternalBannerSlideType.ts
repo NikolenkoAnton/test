@@ -1,0 +1,29 @@
+import {
+  AutoIncrement,
+  Column,
+  DataType,
+  Default,
+  ForeignKey,
+  HasMany,
+  HasOne,
+  Model,
+  PrimaryKey,
+} from 'sequelize-typescript';
+import { ApiModelProperty } from 'swagger-express-ts';
+import { CustomTable } from './Base';
+
+@CustomTable('bb_cms_external_banner_type', false)
+export default class ExternalBannerSlideType extends Model {
+  @ApiModelProperty()
+  @PrimaryKey
+  @AutoIncrement
+  @Column(DataType.INTEGER)
+  id: number;
+
+  @ApiModelProperty()
+  @Column({
+    type: new DataType.TEXT(),
+    allowNull: false,
+  })
+  name: string;
+}

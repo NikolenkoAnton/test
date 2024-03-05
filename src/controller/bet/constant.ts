@@ -1,0 +1,38 @@
+import { Model } from 'sequelize-typescript';
+import { Bet, BetAttributes, BetOutcome, BetOutcomeAttributes, PlatformUser } from '../../db/models';
+import { BET_HISTORY_TABLE_COLUMNS_ENUM } from '../../helper/constants';
+
+export const ATTRIBUTES_TO_MODEL_MAP = new Map<BET_HISTORY_TABLE_COLUMNS_ENUM, [typeof Model, string[]]>()
+  .set(BET_HISTORY_TABLE_COLUMNS_ENUM.ID, [Bet, ['id']])
+  .set(BET_HISTORY_TABLE_COLUMNS_ENUM.TYPE, [Bet, ['type']])
+  .set(BET_HISTORY_TABLE_COLUMNS_ENUM.POSSIBLE_WIN, [Bet, ['possible_win']])
+  .set(BET_HISTORY_TABLE_COLUMNS_ENUM.CURRENT_POSSIBLE_WIN, [Bet, ['current_possible_win']])
+  .set(BET_HISTORY_TABLE_COLUMNS_ENUM.RESULTED_AT, [Bet, ['resulted_at']])
+  .set(BET_HISTORY_TABLE_COLUMNS_ENUM.MAIN_RESULT, [Bet, ['result']])
+  .set(BET_HISTORY_TABLE_COLUMNS_ENUM.MAIN_ODDS, [Bet, ['odds']])
+  .set(BET_HISTORY_TABLE_COLUMNS_ENUM.CASHOUT_AMOUNT, [Bet, ['cashout_amount']])
+  .set(BET_HISTORY_TABLE_COLUMNS_ENUM.CREATED_AT, [Bet, ['created_at']])
+  .set(BET_HISTORY_TABLE_COLUMNS_ENUM.CURRENCY_CODE, [Bet, ['currency_code']])
+  .set(BET_HISTORY_TABLE_COLUMNS_ENUM.CURRENCY_VALUE, [Bet, ['currency_value']])
+  .set(BET_HISTORY_TABLE_COLUMNS_ENUM.RESULT, [BetOutcome, ['result']])
+  .set(BET_HISTORY_TABLE_COLUMNS_ENUM.USER_ID, [Bet, ['user_id']])
+
+  .set(BET_HISTORY_TABLE_COLUMNS_ENUM.ODDS, [BetOutcome, ['odds']])
+  .set(BET_HISTORY_TABLE_COLUMNS_ENUM.RISK_DEFAULT, [BetOutcome, ['risk']])
+  .set(BET_HISTORY_TABLE_COLUMNS_ENUM.GAME_OUTCOME_VALUE, [BetOutcome, ['game_outcome_value']])
+  .set(BET_HISTORY_TABLE_COLUMNS_ENUM.STAKE_DEFAULT, [Bet, ['stake']])
+  .set(BET_HISTORY_TABLE_COLUMNS_ENUM.BONUS_ID, [BetAttributes, ['bonus_id']])
+  .set(BET_HISTORY_TABLE_COLUMNS_ENUM.BONUS_TYPE, [BetAttributes, ['bonus_type']])
+  .set(BET_HISTORY_TABLE_COLUMNS_ENUM.PREMATCH, [BetOutcome, ['section']])
+  .set(BET_HISTORY_TABLE_COLUMNS_ENUM.TEAMS, [BetOutcomeAttributes, ['home_team_name', 'away_team_name']])
+  .set(BET_HISTORY_TABLE_COLUMNS_ENUM.EVENT_START, [BetOutcomeAttributes, ['event_start']])
+  .set(BET_HISTORY_TABLE_COLUMNS_ENUM.COMPETITION_NAME, [BetOutcomeAttributes, ['competition_name']])
+  .set(BET_HISTORY_TABLE_COLUMNS_ENUM.GAME_NAME, [BetOutcomeAttributes, ['game_name']])
+  .set(BET_HISTORY_TABLE_COLUMNS_ENUM.GAME_STATUS, [BetOutcomeAttributes, ['game_status']])
+  .set(BET_HISTORY_TABLE_COLUMNS_ENUM.SPORT_NAME, [BetOutcomeAttributes, ['sport_name']])
+  .set(BET_HISTORY_TABLE_COLUMNS_ENUM.CATEGORY_NAME, [BetOutcomeAttributes, ['category_name']])
+  .set(BET_HISTORY_TABLE_COLUMNS_ENUM.OUTCOME_NAME, [BetOutcomeAttributes, ['outcome_name']])
+  .set(BET_HISTORY_TABLE_COLUMNS_ENUM.MARKET_ID, [BetOutcomeAttributes, ['market_id']])
+  .set(BET_HISTORY_TABLE_COLUMNS_ENUM.MARKET_NAME, [BetOutcomeAttributes, ['market_name']])
+  .set(BET_HISTORY_TABLE_COLUMNS_ENUM.USER_IP, [PlatformUser, ['data']])
+  .set(BET_HISTORY_TABLE_COLUMNS_ENUM.PLATFORM_ID, [PlatformUser, ['platform_id']]);
